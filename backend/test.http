@@ -1,0 +1,85 @@
+### Get all books
+GET http://localhost:5000/api/books
+
+
+### Create a book
+POST http://localhost:5000/api/books
+Content-Type: application/json
+
+{
+  "title": "The Great Book",
+  "author": "Author One",
+  "translator": "Translator One",
+  "category": "Literature",
+  "language": "English",
+  "year": 2020,
+  "pages": 250,
+  "summary": "This is a sample summary of the first book. Later this information will come from our database.",
+  "description": "A sample literature book for testing our Digital Library.",
+  "cover": null,
+  "pdf": null
+}   
+
+### Get all books
+GET http://localhost:5000/api/books
+
+
+### Search by title
+GET http://localhost:5000/api/books?search=Afghanistan
+
+
+### Search by author
+GET http://localhost:5000/api/books?search=Author%20Two
+
+
+### Search by translator
+GET http://localhost:5000/api/books?search=Translator%20Two
+
+GET http://localhost:5000/api/books/6a917ca6eacf737d0e288508
+
+
+### Register User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "TestPassword123"
+}
+
+### Login User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "TestPassword123"
+}
+
+### Wrong Password
+
+
+POST http://localhost:5000/api/books/YOUR_BOOK_ID/pdf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTkyYzRmOTFiYTYxMjRiNWM5ZDAyYmYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODgwNzU4MzksImV4cCI6MTc4ODY4MDYzOX0.DmX7DIKR0FgwWolSeiip9Hb85Di6_S52w7Xoqak_AY4
+Content-Type: multipart/form-data; boundary=----BookBoundary
+
+------BookBoundary
+Content-Disposition: form-data; name="pdf"; filename="great-book.pdf"
+Content-Type: application/pdf
+
+< ./great-book.pdf
+------BookBoundary--
+
+GET http://localhost:5000/api/test/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTkyYzRmOTFiYTYxMjRiNWM5ZDAyYmYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODgwNzU4MzksImV4cCI6MTc4ODY4MDYzOX0.DmX7DIKR0FgwWolSeiip9Hb85Di6_S52w7Xoqak_AY4
+
+{
+  "email": "test@example.com",
+  "password": "WrongPassword"
+}
+
+GET http://localhost:5000/api/test/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTkyYzRmOTFiYTYxMjRiNWM5ZDAyYmYiLCJyb2xlIjoidXNlciIsImlhdCI6MTc4ODAyMjI1OSwiZXhwIjoxNzg4NjI3MDU5fQ.sn2kqZRth3ZoXPoUU0Orua1LuqErf3QBmxsmIoGvibg
+
+

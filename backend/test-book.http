@@ -1,0 +1,13 @@
+
+### Upload PDF to a book
+
+POST http://localhost:5000/api/books/6a917ca6eacf737d0e288505/pdf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTkyYzRmOTFiYTYxMjRiNWM5ZDAyYmYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODgwNzc2NTQsImV4cCI6MTc4ODY4MjQ1NH0.rjFL6wFdiv5welaTQg3IQNh3JF1rW2OjA6pnaSQY6HU
+Content-Type: multipart/form-data; boundary=----BookBoundary
+
+------BookBoundary
+Content-Disposition: form-data; name="pdf"; filename="test-book.pdf"
+Content-Type: application/pdf
+
+< ./test-book.pdf
+------BookBoundary--
