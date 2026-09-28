@@ -11,3 +11,5 @@ uploads/
 
 .DS_Store
 Thumbs.db
+Books/*.pdf
+Books/*.PDF
